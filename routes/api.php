@@ -6,4 +6,5 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgentController;
 
 Route::get('/agents', [AgentController::class, "getAgents"]);
-Route::get('/active_agents', [AgentController::class, "countActiveAgents"]);
+Route::get('/inactive_agents', [AgentController::class, "countInactiveAgents"]);
+Route::get('/ten_agents', [AgentController::class, "listTenActiveAgents"]);

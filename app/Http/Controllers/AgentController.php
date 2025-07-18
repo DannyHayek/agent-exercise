@@ -13,7 +13,11 @@ class AgentController extends Controller
 
     }
 
-    function countActiveAgents () {
-        return Agent::where("isActive", true)->count();
+    function countInactiveAgents () {
+        return Agent::where("isActive", false)->count();
+    }
+
+    function listTenActiveAgents () {
+        return Agent::select('name')->where("isActive", true)->orderBy('name')->limit(10)->get();
     }
 }
