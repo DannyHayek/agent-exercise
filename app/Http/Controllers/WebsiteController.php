@@ -27,10 +27,12 @@ class WebsiteController extends Controller
     function locateOrCreate ($website) {
         return Website::firstOrCreate([
             'url' => $website,
-            'agent_id' => fake()->numberBetween(1, 40),
+            'agent_id' => fake()->numberBetween(1, Agent::max('id')),
             'ip_address' => fake()->ipv4(),
         ]);
     }
+
+
 
 }
 

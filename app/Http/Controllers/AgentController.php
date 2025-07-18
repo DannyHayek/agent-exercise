@@ -58,4 +58,8 @@ class AgentController extends Controller
     function updateLazy () {
         Agent::where("isActive", true)->lazyById(10)->each->update(['isActive' => false]);
     }
+
+    function findLastID () {
+        return Agent::max('id');
+    }
 }
