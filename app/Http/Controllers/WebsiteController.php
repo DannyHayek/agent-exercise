@@ -14,9 +14,7 @@ class WebsiteController extends Controller
         if (!$id) {
             return Website::all();
         }
-        return Website::findOr($id, function () {
-            return "No website with that ID";
-        });
+        return Website::findOrFail($id);
     }
 
     function getWebsitesWithAgents () {
@@ -24,6 +22,14 @@ class WebsiteController extends Controller
         ->whereColumn('agent_id', 'agents.id')
         ->orderByDesc('url')
         ->limit(1)])->get();
+    }
+
+    function locateOrCreate ($website) {
+        return Website::firstOrCreate([
+            'url' => $website,
+            'agent_id' => fake()->numberBetween(1, 40),
+            'ip_address' => fake()->ipv4(),
+        ]);
     }
 
 }
