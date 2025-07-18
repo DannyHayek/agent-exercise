@@ -18,6 +18,7 @@ class AgentFactory extends Factory
     {
         return [
             'name' => fake()->name(1),
+            'isActive' => fake()->boolean(),
         ];
     }
 }
