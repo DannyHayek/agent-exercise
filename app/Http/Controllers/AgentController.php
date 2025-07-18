@@ -16,6 +16,14 @@ class AgentController extends Controller
         return $agents;
     }
 
+    function updateAgent(Request $request) {
+        $agent = Agent::find($request->id);
+        $agent->name = $request->name;
+
+        $agent->save();
+        return $agent;
+    }
+
     function countInactiveAgents () {
         return Agent::where("isActive", false)->count();
     }

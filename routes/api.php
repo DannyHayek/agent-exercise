@@ -16,7 +16,7 @@ Route::get('/chunk_agents', [AgentController::class, "getChunks"]);
 Route::get('/chunk_update_agents', [AgentController::class, "updateChunks"]);
 Route::get('/lazy_update_agents', [AgentController::class, "updateLazy"]);
 Route::get('/last_agent', [AgentController::class, "findLastID"]);
-
+Route::post('update_agent', [AgentController::class, "updateAgent"]);
 
 Route::get('/websites/{id?}', [WebsiteController::class, "getWebsites"]);
 Route::get('/agents_websites', [WebsiteController::class, "getWebsitesWithAgents"]);
