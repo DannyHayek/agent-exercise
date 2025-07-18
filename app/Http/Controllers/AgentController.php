@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
 
 use App\Models\Agent;
 
@@ -36,5 +37,13 @@ class AgentController extends Controller
         foreach ($agents as $a) {
             echo "This is agent " . $a->name . "<br>";
         }
+    }
+
+    function getChunks () {
+        Agent::chunk(10, function (Collection $agents) {
+            foreach ($agents as $a) {
+                echo "Agent " . $a->name . " is " . ($a->isActive ? " active " : " inactive ") . "<br>";
+            }
+        });
     }
 }

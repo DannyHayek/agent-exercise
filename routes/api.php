@@ -10,4 +10,5 @@ Route::get('/inactive_agents', [AgentController::class, "countInactiveAgents"]);
 Route::get('/ten_agents', [AgentController::class, "listTenActiveAgents"]);
 Route::get('/reject_agents', [AgentController::class, "rejectActive"]);
 Route::get('/loop_agents', [AgentController::class, "loopAgents"]);
+Route::get('/chunk_agents', [AgentController::class, "getChunks"]);
 
