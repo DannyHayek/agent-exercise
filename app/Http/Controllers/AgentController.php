@@ -6,12 +6,22 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 
 use App\Models\Agent;
+use App\Models\Website;
+
 
 class AgentController extends Controller
 {
     function getAgents () {
         $agents = Agent::all();
         return $agents;
+    }
+
+    function updateAgent(Request $request) {
+        $agent = Agent::find($request->id);
+        $agent->name = $request->name;
+
+        $agent->save();
+        return $agent;
     }
 
     function countInactiveAgents () {
@@ -55,5 +65,9 @@ class AgentController extends Controller
 
     function updateLazy () {
         Agent::where("isActive", true)->lazyById(10)->each->update(['isActive' => false]);
+    }
+
+    function findLastID () {
+        return Agent::max('id');
     }
 }

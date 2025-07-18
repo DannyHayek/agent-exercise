@@ -5,17 +5,17 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-use App\Models\Agent;
+use App\Models\Website;
 
 
-class AgentSeeder extends Seeder
+class WebsiteSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Agent::factory(20)->create();
+        Website::factory(20)->create();
 
     }
 }
