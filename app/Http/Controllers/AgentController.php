@@ -30,4 +30,11 @@ class AgentController extends Controller
 
         return $agents;
     }
+
+    function loopAgents () {
+        $agents = Agent::all();
+        foreach ($agents as $a) {
+            echo "This is agent " . $a->name . "<br>";
+        }
+    }
 }
