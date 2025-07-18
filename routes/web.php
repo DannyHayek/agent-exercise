@@ -7,6 +7,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/agents', [AgentController::class, "getAgents"]);
-Route::get('/active_agents', [AgentController::class, "countActiveAgents"]);
+
 
