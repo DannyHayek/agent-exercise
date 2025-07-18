@@ -26,9 +26,7 @@ class AgentController extends Controller
 
     function getWebsitesByAgent($id) {
         $websites = Agent::find($id)->website;
-        foreach($websites as $w) {
-            echo $w;
-        }
+        return $websites;
     }
 
     function upsertAgent(Request $request) {
