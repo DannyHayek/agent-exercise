@@ -21,3 +21,4 @@ Route::get('/last_agent', [AgentController::class, "findLastID"]);
 Route::get('/websites/{id?}', [WebsiteController::class, "getWebsites"]);
 Route::get('/agents_websites', [WebsiteController::class, "getWebsitesWithAgents"]);
 Route::get('/locate_create_website/{website}', [WebsiteController::class, "locateOrCreate"]);
+Route::post('/create_website', [WebsiteController::class, "createWebsite"]);

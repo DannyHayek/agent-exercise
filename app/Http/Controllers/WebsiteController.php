@@ -32,7 +32,17 @@ class WebsiteController extends Controller
         ]);
     }
 
+    function createWebsite (Request $request) {
+        $website = new Website;
 
+        $website->url = $request->url;
+        $website->ip_address = fake()->ipv4();
+        $website->agent_id = fake()->numberBetween(1, Agent::max('id'));
+
+        $website->save();
+
+        return $website;
+    }
 
 }
 
