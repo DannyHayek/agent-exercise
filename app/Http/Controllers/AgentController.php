@@ -24,6 +24,21 @@ class AgentController extends Controller
         return $agent;
     }
 
+    function getWebsitesByAgent($id) {
+        $websites = Agent::find($id)->website;
+        return $websites;
+    }
+
+    function upsertAgent(Request $request) {
+        Agent::upsert([
+            'name' => $request->name, 'ip_address' => $request->ip_address, 'isActive' => false
+        ], uniqueBy:['id'], update:['ip_address']   );
+    }
+
+    function deleteAgent($id) {
+        Agent::destroy($id);
+    }
+
     function countInactiveAgents () {
         return Agent::where("isActive", false)->count();
     }

@@ -17,6 +17,7 @@ class WebsiteController extends Controller
         return Website::findOrFail($id);
     }
 
+
     function getWebsitesWithAgents () {
         return Website::addSelect(['agent' => Agent::select('name')
         ->whereColumn('agent_id', 'agents.id')
