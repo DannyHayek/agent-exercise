@@ -46,4 +46,10 @@ class AgentController extends Controller
             }
         });
     }
+
+    function updateChunks () {
+        Agent::where("isActive", false)->chunkById(10, function (Collection $agents) {
+            $agents->each->update(['isActive' => true]);
+        });
+    }
 }
