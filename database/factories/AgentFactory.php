@@ -17,7 +17,8 @@ class AgentFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(1),
+            'name' => fake()->firstName(1),
+            'ip_address' => fake()->ipv4(),
             'isActive' => fake()->boolean(),
         ];
     }

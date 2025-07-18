@@ -9,8 +9,8 @@ use App\Models\Agent;
 class AgentController extends Controller
 {
     function getAgents () {
-        return Agent::all();
-
+        $agents = Agent::all();
+        return $agents;
     }
 
     function countInactiveAgents () {
@@ -20,4 +20,8 @@ class AgentController extends Controller
     function listTenActiveAgents () {
         return Agent::select('name')->where("isActive", true)->orderBy('name')->limit(10)->get();
     }
+
+    // function rejectActive() {
+    //     $agents = Agent::where
+    // }
 }
