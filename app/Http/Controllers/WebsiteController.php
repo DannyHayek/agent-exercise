@@ -14,7 +14,9 @@ class WebsiteController extends Controller
         if (!$id) {
             return Website::all();
         }
-        return Website::find($id);
+        return Website::findOr($id, function () {
+            return "No website with that ID";
+        });
     }
 
     function getWebsitesWithAgents () {
