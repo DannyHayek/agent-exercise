@@ -21,7 +21,13 @@ class AgentController extends Controller
         return Agent::select('name')->where("isActive", true)->orderBy('name')->limit(10)->get();
     }
 
-    // function rejectActive() {
-    //     $agents = Agent::where
-    // }
+    function rejectActive() {
+        $agents = Agent::all();
+
+        $agents = $agents->reject(function (Agent $agent) {
+            return $agent->isActive;
+        });
+
+        return $agents;
+    }
 }
