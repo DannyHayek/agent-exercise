@@ -10,8 +10,11 @@ use App\Models\Agent;
 
 class WebsiteController extends Controller
 {
-    function getWebsites () {
-        return Website::all();
+    function getWebsites ($id = null) {
+        if (!$id) {
+            return Website::all();
+        }
+        return Website::find($id);
     }
 
     function getWebsitesWithAgents () {
@@ -20,6 +23,7 @@ class WebsiteController extends Controller
         ->orderByDesc('url')
         ->limit(1)])->get();
     }
+
 }
 
 //SELECT agents.name, websites.url FROM `agents`
