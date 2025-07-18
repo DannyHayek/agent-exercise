@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 
 use App\Models\Agent;
+use App\Models\Website;
+
 
 class AgentController extends Controller
 {
