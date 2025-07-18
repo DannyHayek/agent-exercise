@@ -52,4 +52,8 @@ class AgentController extends Controller
             $agents->each->update(['isActive' => true]);
         });
     }
+
+    function updateLazy () {
+        Agent::where("isActive", true)->lazyById(10)->each->update(['isActive' => false]);
+    }
 }
